@@ -1,0 +1,7 @@
+Endpoint 1:
+Description: Get client name.
+URL: http://localhost/petstore/php/client.php?id=1
+Method: Get
+Input: id
+Output [{"name": string}]
+

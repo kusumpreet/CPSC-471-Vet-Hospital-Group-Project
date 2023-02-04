@@ -1,0 +1,234 @@
+<html>
+<head>
+    <link rel ="stylesheet" href="calendar.css">
+    <script src="shiftBooking.js"></script>
+</head>
+    <body>
+        <div id="calendar_div" style="display: block;">
+<div id="calendar" style="width:250px;height:190px;">
+    <table id="days" cellspacing="1" cellpadding="1" bgcolor="#000000">
+        <tbody>
+<tr>
+    <td class="title_center" style="cursor:pointer;" onclick="calendar.previous_month();">&lt;&lt;</td>
+    <td id="month_year" colspan="5" class="title_center" style="font-size:12pt;">
+<b>May 2021</b>
+</td>
+<td class="title_center" style="cursor:pointer;" onclick="calendar.next_month();">&gt;&gt;</td>
+</tr>
+<tr>
+<td class="header_center">Su</td>
+<td class="header_center">Mo</td>
+<td class="header_center">Tu</td>
+<td class="header_center">We</td>
+<td class="header_center">Th</td>
+<td class="header_center">Fr</td>
+<td class="header_center">Sa</td>
+</tr>
+<tr>
+<td id="w0d0" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,25);">&nbsp;</button>
+</td>
+<td id="w0d1" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,26);">&nbsp;</button>
+</td>
+<td id="w0d2" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,27);">&nbsp;</button>
+</td>
+<td id="w0d3" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,28);">&nbsp;</button>
+</td>
+<td id="w0d4" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,29);">&nbsp;</button>
+</td>
+<td id="w0d5" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,30);">&nbsp;</button>
+</td>
+<td id="w0d6" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,1);">
+<b>1</b>
+</button>
+</td>
+</tr>
+<tr>
+<td id="w1d0" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,2);">
+<b>2</b>
+</button>
+</td>
+<td id="w1d1" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,3);">
+<b>3</b>
+</button>
+</td>
+<td id="w1d2" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,4);">
+<b>4</b>
+</button>
+</td>
+<td id="w1d3" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,5);">
+<b>5</b>
+</button>
+</td>
+<td id="w1d4" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,6);">
+<b>6</b>
+</button>
+</td>
+<td id="w1d5" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,7);">
+<b>7</b>
+</button>
+</td>
+<td id="w1d6" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,8);">
+<b>8</b>
+</button>
+</td>
+</tr>
+<tr>
+<td id="w2d0" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,9);">
+<b>9</b>
+</button>
+</td>
+<td id="w2d1" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,10);">
+<b>10</b>
+</button>
+</td>
+<td id="w2d2" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,11);">
+<b>11</b>
+</button>
+</td>
+<td id="w2d3" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,12);">
+<b>12</b>
+</button>
+</td>
+<td id="w2d4" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,13);">
+<b>13</b>
+</button>
+</td>
+<td id="w2d5" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,14);">
+<b>14</b>
+</button>
+</td>
+<td id="w2d6" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,15);">
+<b>15</b>
+</button>
+</td>
+</tr>
+<tr>
+<td id="w3d0" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,16);">
+<b>16</b>
+</button>
+</td>
+<td id="w3d1" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,17);">
+<b>17</b>
+</button>
+</td>
+<td id="w3d2" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,18);">
+<b>18</b>
+</button>
+</td>
+<td id="w3d3" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,19);">
+<b>19</b>
+</button>
+</td>
+<td id="w3d4" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,20);">
+<b>20</b>
+</button>
+</td>
+<td id="w3d5" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,21);">
+<b>21</b>
+</button>
+</td>
+<td id="w3d6" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,22);">
+<b>22</b>
+</button>
+</td>
+</tr>
+<tr>
+<td id="w4d0" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,23);">
+<b>23</b>
+</button>
+</td>
+<td id="w4d1" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,24);">
+<b>24</b>
+</button>
+</td>
+<td id="w4d2" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,25);">
+<b>25</b>
+</button>
+</td>
+<td id="w4d3" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,26);">
+<b>26</b>
+</button>
+</td>
+<td id="w4d4" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,27);">
+<b>27</b>
+</button>
+</td>
+<td id="w4d5" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,28);">
+<b>28</b>
+</button>
+</td>
+<td id="w4d6" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,29);">
+<b>29</b>
+</button>
+</td>
+</tr>
+<tr>
+<td id="w5d0" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,30);">
+<b>30</b>
+</button>
+</td>
+<td id="w5d1" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,31);">
+<b>31</b>
+</button>
+</td>
+<td id="w5d2" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,1);">&nbsp;</button>
+</td>
+<td id="w5d3" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,2);">&nbsp;</button>
+</td>
+<td id="w5d4" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,3);">&nbsp;</button>
+</td>
+<td id="w5d5" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,4);">&nbsp;</button>
+</td>
+<td id="w5d6" class="data" style="width:40px;">
+<button style="width:35px;color:blue;" onclick="javascript:calendar.calendar_click(2021,5,5);">&nbsp;</button>
+</td>
+</tr>  </tbody>
+</table>
+</div>
+</div>
+
+
+
+</body>
+</html>

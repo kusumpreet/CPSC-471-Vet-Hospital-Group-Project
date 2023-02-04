@@ -1,0 +1,872 @@
+<Home>:
+    BoxLayout:
+        orientation: "vertical"
+        canvas:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                size: self.width, self.height
+        GridLayout:
+            cols: 3
+            size_hint: 1, None
+            height: "50dp"
+            padding: "10dp"
+            Button:
+                id: menuButton
+                text: "Menu"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_x": .5 }
+                on_press: root.goToMenu()
+            Label:
+                text: "Animal Hospital App"
+                font_size: 17
+                color: (0, 0, 0, 1)
+                size_hint: 0.2, 1
+                pos_hint: { "center_x": .5 }
+            Button:
+                text: "Profile"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_y": .5 }
+                on_press: root.goToProfile()
+        GridLayout:
+            cols: 1
+            size_hint: 1, None
+            height: "175dp"
+            Label:
+                text: "Appointment Types:"
+                color: (0, 0, 0, 1)
+                size_hint: 1, None
+                height: "40dp"
+            ScrollView:
+                do_scroll_y: False
+                bar_width: 7
+                GridLayout:
+                    rows: 1
+                    id: appTypeDisplay
+                    padding: "20dp"
+                    spacing: "20dp"
+                    size_hint_x: None
+                    width: self.minimum_width
+        GridLayout:
+            cols: 1
+            Label:
+                text: "Our Vets:"
+                color: (0, 0, 0, 1)
+                size_hint: 1, None
+                height: "50dp"
+            ScrollView:
+                bar_width: 7
+                GridLayout:
+                    cols: 1
+                    id: vetDisplay
+                    padding: "20dp"
+                    spacing: "20dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+
+<AppTypeLabel>:
+    size_hint: None, None
+    size: "100dp", "100dp"
+    color: 0,0,0,1
+    background_color: (0.5, 0.1, 0.9, 1)
+    canvas.before:
+        Color:
+            rgba: self.background_color
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+<Menu>:
+    BoxLayout:
+        orientation: "vertical"
+        padding: "10dp"
+        canvas:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                size: self.width, self.height
+        GridLayout:
+            cols: 3
+            size_hint: 1, .2
+            Button:
+                id: goToH
+                text: "Go Home"
+                size_hint: 0.4, 1
+                on_press: root.goHome()
+            Label:
+                text: ""
+            Button:
+                id: logO
+                text: "Log Out"
+                size_hint: 0.4, 1
+                pos_hint_x: root.width
+                on_press: root.logOut() 
+        GridLayout:
+            cols: 1
+            #padding: "10dp"
+            padding: 0, "10dp", 0, 0
+            spacing: "10dp"
+            Button:
+                id: goToC
+                text: "Client Login"
+                on_press: root.goToCLog()
+            Button:
+                id: goToV
+                text: "Vet Login"
+                on_press: root.goToVLog()
+            Button:
+                id: goToA
+                text: "Admin Login"
+                on_press: root.goToALog()
+            Button:
+                id: goToShop
+                text: "Shop"
+                on_press: root.goToShopPage()
+            Button:
+                id: goToBlog
+                text: "Blog"
+                on_press: root.goToBlogPage()
+
+<CLogin>:
+    BoxLayout:
+        orientation: "vertical"
+        canvas:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                size: self.width, self.height
+        GridLayout:
+            cols: 3
+            size_hint: 1, None
+            height: "50dp"
+            padding: "10dp"
+            Button:
+                id: menuButton
+                text: "Menu"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_x": .5 }
+                on_press: root.goToMenu()
+            Label:
+                text: "Animal Hospital App"
+                font_size: 17
+                color: (0, 0, 0, 1)
+                size_hint: 0.2, 1
+                pos_hint: { "center_x": .5 }
+            Button:
+                text: "Profile"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_y": .5 }
+                on_press: root.goToProfile()
+        GridLayout:
+            cols: 1
+            Image:
+                source: "images/login_image.jpg"
+                size_hint: 1, .5
+            Label:
+                text: "Client Login"
+                color: (0, 0, 0, 1)
+                font_size: 22
+                size_hint: 1, 0.2
+            BoxLayout:
+                orientation: "vertical"
+                size_hint: 1, 0.3
+                Label:
+                    text: "Username"
+                    color: (0, 0, 0, 1)
+                    size_hint: 1, None
+                    height: "30dp"
+                TextInput:
+                    id: username
+                    multiline:False
+                    size_hint: 0.7, None
+                    height: "30dp"
+                    pos_hint: { "center_x": .5 }
+            BoxLayout:
+                orientation: "vertical"
+                size_hint: 1, 0.3
+                Label:
+                    text: "Password"
+                    color: (0, 0, 0, 1)
+                    size_hint: 1, None
+                    height: "30dp"
+                TextInput:
+                    id: password
+                    multiline:False
+                    password:True
+                    size_hint: 0.7, None
+                    height: "30dp"
+                    pos_hint: { "center_x": .5 }
+            BoxLayout:
+                orientation: "vertical"
+                Label:
+                    text: ""
+                    size_hint: 1, 0.1
+                Button:
+                    id: clogsubmit
+                    text: "Login"
+                    size_hint: 0.3, None
+                    height: "40dp"
+                    pos_hint: { "center_x": .5 }
+                    on_press: root.client_login(username.text, password.text)
+                Label:
+                    text: ""
+                    size_hint: 1, 0.1
+                
+
+<CProfile>:
+    BoxLayout:
+        orientation: "vertical"
+        canvas:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                size: self.width, self.height
+        GridLayout:
+            cols: 3
+            size_hint: 1, None
+            height: "50dp"
+            padding: "10dp"
+            Button:
+                id: menuButton
+                text: "Menu"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_x": .5 }
+                on_press: root.goToMenu()
+            Label:
+                text: "Animal Hospital App"
+                font_size: 17
+                color: (0, 0, 0, 1)
+                size_hint: 0.2, 1
+                pos_hint: { "center_x": .5 }
+            Button:
+                text: "Profile"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_y": .5 }
+                on_press: root.goToProfile()
+        GridLayout:
+            cols: 1
+            Label:
+                id: mainLabel
+                text: 'I have not been updated'
+                color: (0,0,0,1)
+                size_hint: 1, 0.07
+            GridLayout:
+                cols: 2
+                size_hint: 1, None
+                height: "50dp"
+                padding: "10dp"
+                Button:
+                    text: "Book an Appointment"
+                    #size_hint: None, 1
+                    #width: "75dp"
+                    on_press: root.goToBookApp()
+                Button:
+                    text: "View Booked Appointments"
+                    #size_hint: None, 1
+                    #width: "75dp"
+                    on_press: root.goToViewApp()
+            Label:
+                text: "My Pets:"
+                font_size: 22
+                color: (0,0,0,1)
+                size_hint_y: 0.15
+                pos_hint: { "center_x": .5 }
+            ScrollView:
+                bar_width: 7
+                StackLayout:
+                    id: petStack
+                    padding: "20dp"
+                    spacing: "20dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+
+<BookAppointment>:
+    BoxLayout:
+        orientation: "vertical"
+        canvas:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                size: self.width, self.height
+        GridLayout:
+            cols: 3
+            size_hint: 1, None
+            height: "50dp"
+            padding: "10dp"
+            Button:
+                id: menuButton
+                text: "Menu"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_x": .5 }
+                on_press: root.goToMenu()
+            Label:
+                text: "Animal Hospital App"
+                font_size: 17
+                color: (0, 0, 0, 1)
+                size_hint: 0.2, 1
+                pos_hint: { "center_x": .5 }
+            Button:
+                text: "Profile"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_y": .5 }
+                on_press: root.goToProfile()
+        GridLayout:
+            cols: 1
+            Label:
+                text: "Book an Appointment"
+                color: (0,0,0,1)
+                size_hint_y: None
+                height: "40dp"
+            Button:
+                text: "Select a Date"
+                size_hint_y: None
+                height: "40dp"
+                on_press: root.show_date_picker()
+            Label:
+                id: date_label
+                text: ""
+                color: (0,0,0,1)
+                size_hint_y: None
+                height: "70dp"
+            StackLayout:
+                id: timeDisplay
+                padding: "10dp"
+                spacing: "10dp"
+
+<TimeButton>:
+    text: ""
+    size_hint: (None, None)
+    size: (dp(40), dp(40))
+    on_press: self.bookTime(self)
+
+<ViewAppointment>:
+    BoxLayout:
+        orientation: "vertical"
+        canvas:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                size: self.width, self.height
+        GridLayout:
+            cols: 3
+            size_hint: 1, None
+            height: "50dp"
+            padding: "10dp"
+            Button:
+                id: menuButton
+                text: "Menu"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_x": .5 }
+                on_press: root.goToMenu()
+            Label:
+                text: "Animal Hospital App"
+                font_size: 17
+                color: (0, 0, 0, 1)
+                size_hint: 0.2, 1
+                pos_hint: { "center_x": .5 }
+            Button:
+                text: "Profile"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_y": .5 }
+                on_press: root.goToProfile()
+        GridLayout:
+            cols: 1
+            Label:
+                text: "Booked Appointments:"
+                color: (0,0,0,1)
+                size_hint_y: 0.1
+            GridLayout:
+                cols: 1
+                id: apptView
+
+<VLogin>:
+    BoxLayout:
+        orientation: "vertical"
+        canvas:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                size: self.width, self.height
+        GridLayout:
+            cols: 3
+            size_hint: 1, None
+            height: "50dp"
+            padding: "10dp"
+            Button:
+                id: menuButton
+                text: "Menu"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_x": .5 }
+                on_press: root.goToMenu()
+            Label:
+                text: "Animal Hospital App"
+                font_size: 17
+                color: (0, 0, 0, 1)
+                size_hint: 0.2, 1
+                pos_hint: { "center_x": .5 }
+            Button:
+                text: "Profile"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_y": .5 }
+                on_press: root.goToProfile()
+        GridLayout:
+            cols: 1
+            Image:
+                source: "images/login_image.jpg"
+                size_hint: 1, .5
+            Label:
+                text: "Vet Login"
+                color: (0, 0, 0, 1)
+                font_size: 22
+                size_hint: 1, 0.2
+            BoxLayout:
+                orientation: "vertical"
+                size_hint: 1, 0.3
+                Label:
+                    text: "Username"
+                    color: (0, 0, 0, 1)
+                    size_hint: 1, None
+                    height: "30dp"
+                TextInput:
+                    id: username
+                    multiline:False
+                    size_hint: 0.7, None
+                    height: "30dp"
+                    pos_hint: { "center_x": .5 }
+            BoxLayout:
+                orientation: "vertical"
+                size_hint: 1, 0.3
+                Label:
+                    text: "Password"
+                    color: (0, 0, 0, 1)
+                    size_hint: 1, None
+                    height: "30dp"
+                TextInput:
+                    id: password
+                    multiline:False
+                    password:True
+                    size_hint: 0.7, None
+                    height: "30dp"
+                    pos_hint: { "center_x": .5 }
+            BoxLayout:
+                orientation: "vertical"
+                Label:
+                    text: ""
+                    size_hint: 1, 0.1
+                Button:
+                    id: vlogsubmit
+                    text: "Login"
+                    size_hint: 0.3, None
+                    height: "40dp"
+                    pos_hint: { "center_x": .5 }
+                    on_press: root.vet_login(username.text, password.text)
+                Label:
+                    text: ""
+                    size_hint: 1, 0.1
+
+<VProfile>:
+    BoxLayout:
+        orientation: "vertical"
+        canvas:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                size: self.width, self.height
+        GridLayout:
+            cols: 3
+            size_hint: 1, None
+            height: "50dp"
+            padding: "10dp"
+            Button:
+                id: menuButton
+                text: "Menu"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_x": .5 }
+                on_press: root.goToMenu()
+            Label:
+                text: "Animal Hospital App"
+                font_size: 17
+                color: (0, 0, 0, 1)
+                size_hint: 0.2, 1
+                pos_hint: { "center_x": .5 }
+            Button:
+                text: "Profile"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_y": .5 }
+                on_press: root.goToProfile()
+        GridLayout:
+            cols: 1
+            Label:
+                text: 'Your upcoming shifts:'
+                color: (0,0,0,1)
+                size_hint_y: 0.1
+            GridLayout:
+                cols: 1
+                id: shiftView
+
+<ALogin>:
+    BoxLayout:
+        orientation: "vertical"
+        canvas:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                size: self.width, self.height
+        GridLayout:
+            cols: 3
+            size_hint: 1, None
+            height: "50dp"
+            padding: "10dp"
+            Button:
+                id: menuButton
+                text: "Menu"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_x": .5 }
+                on_press: root.goToMenu()
+            Label:
+                text: "Animal Hospital App"
+                font_size: 17
+                color: (0, 0, 0, 1)
+                size_hint: 0.2, 1
+                pos_hint: { "center_x": .5 }
+            Button:
+                text: "Profile"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_y": .5 }
+                on_press: root.goToProfile()
+        GridLayout:
+            cols: 1
+            Image:
+                source: "images/login_image.jpg"
+                size_hint: 1, .5
+            Label:
+                text: "Admin Login"
+                color: (0, 0, 0, 1)
+                font_size: 22
+                size_hint: 1, 0.2
+            BoxLayout:
+                orientation: "vertical"
+                size_hint: 1, 0.3
+                Label:
+                    text: "Username"
+                    color: (0, 0, 0, 1)
+                    size_hint: 1, None
+                    height: "30dp"
+                TextInput:
+                    id: username
+                    multiline:False
+                    size_hint: 0.7, None
+                    height: "30dp"
+                    pos_hint: { "center_x": .5 }
+            BoxLayout:
+                orientation: "vertical"
+                size_hint: 1, 0.3
+                Label:
+                    text: "Password"
+                    color: (0, 0, 0, 1)
+                    size_hint: 1, None
+                    height: "30dp"
+                TextInput:
+                    id: password
+                    multiline:False
+                    password:True
+                    size_hint: 0.7, None
+                    height: "30dp"
+                    pos_hint: { "center_x": .5 }
+            BoxLayout:
+                orientation: "vertical"
+                Label:
+                    text: ""
+                    size_hint: 1, 0.1
+                Button:
+                    id: alogsubmit
+                    text: "Login"
+                    size_hint: 0.3, None
+                    height: "40dp"
+                    pos_hint: { "center_x": .5 }
+                    on_press: root.admin_login(username.text, password.text)
+                Label:
+                    text: ""
+                    size_hint: 1, 0.1
+
+<AProfile>:
+    BoxLayout:
+        orientation: "vertical"
+        canvas:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                size: self.width, self.height
+        GridLayout:
+            cols: 3
+            size_hint: 1, None
+            height: "50dp"
+            padding: "10dp"
+            Button:
+                id: menuButton
+                text: "Menu"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_x": .5 }
+                on_press: root.goToMenu()
+            Label:
+                text: "Animal Hospital App"
+                font_size: 17
+                color: (0, 0, 0, 1)
+                size_hint: 0.2, 1
+                pos_hint: { "center_x": .5 }
+            Button:
+                text: "Profile"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_y": .5 }
+                on_press: root.goToProfile()
+        GridLayout:
+            cols: 1
+            Label:
+                text: "Set a Shift"
+                color: (0,0,0,1)
+                size_hint_y: None
+                height: "40dp"
+            Button:
+                text: "Select a Date"
+                size_hint_y: None
+                height: "40dp"
+                on_press: root.show_date_picker()
+            Label:
+                id: date_label
+                text: ""
+                color: (0,0,0,1)
+                size_hint_y: None
+                height: "100dp"
+            StackLayout:
+                id: vetDisplay
+                padding: "10dp"
+                spacing: "10dp"
+
+<VetButton>:
+    text: ""
+    size_hint: (None, None)
+    size: (dp(200), dp(40))
+    on_press: self.setShift(self)
+
+<Shop>:
+    BoxLayout:
+        orientation: "vertical"
+        spacing: "10dp"
+        canvas:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                size: self.width, self.height
+        GridLayout:
+            cols: 3
+            size_hint: 1, None
+            height: "50dp"
+            padding: "10dp"
+            Button:
+                id: menuButton
+                text: "Menu"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_x": .5 }
+                on_press: root.goToMenu()
+            Label:
+                text: "Animal Hospital App"
+                font_size: 17
+                color: (0, 0, 0, 1)
+                size_hint: 0.2, 1
+                pos_hint: { "center_x": .5 }
+            Button:
+                text: "Profile"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_y": .5 }
+                on_press: root.goToProfile()
+        Button:
+            id: goToCart
+            text: "View cart"
+            size_hint: (None, None)
+            size: (dp(150), dp(40))
+            pos_hint: { "center_x": .5 }
+            on_press: root.viewCart()
+        ScrollView:
+            bar_width: 7
+            StackLayout:
+                id: shopStack
+                padding: "20dp"
+                spacing: "20dp"
+                size_hint_y: None
+                height: self.minimum_height
+
+<Cart>:
+    BoxLayout:
+        orientation: "vertical"
+        spacing: "10dp"
+        canvas:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                size: self.width, self.height
+        GridLayout:
+            cols: 3
+            size_hint: 1, None
+            height: "50dp"
+            padding: "10dp"
+            Button:
+                id: menuButton
+                text: "Menu"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_x": .5 }
+                on_press: root.goToMenu()
+            Label:
+                text: "Animal Hospital App"
+                font_size: 17
+                color: (0, 0, 0, 1)
+                size_hint: 0.2, 1
+                pos_hint: { "center_x": .5 }
+            Button:
+                text: "Profile"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_y": .5 }
+                on_press: root.goToProfile()
+        Button:
+            id: goToShop
+            text: "Back to Shop"
+            size_hint: (None, None)
+            size: (dp(150), dp(40))
+            pos_hint: { "center_x": .5 }
+            on_press: root.viewShop()
+        Button:
+            id: makeOrder
+            text: "Make Order"
+            size_hint: (None, None)
+            size: (dp(150), dp(40))
+            pos_hint: { "center_x": .5 }
+            on_press: root.orderItems()
+        ScrollView:
+            bar_width: 7
+            StackLayout:
+                id: cartStack
+                padding: "20dp"
+                spacing: "20dp"
+                size_hint_y: None
+                height: self.minimum_height
+
+<ShopWindowButton>:
+    text: "Add to cart"
+    size_hint: (None, None)
+    size: (dp(150), dp(40))
+    on_press: self.add_to_cart(self)
+
+<CartRemoveButton>:
+    text: "Remove from cart"
+    size_hint: (None, None)
+    size: (dp(150), dp(40))
+    on_press: self.removeFromCart(self)
+
+<Blog>:
+    BoxLayout:
+        orientation: "vertical"
+        canvas:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                size: self.width, self.height
+        GridLayout:
+            cols: 3
+            size_hint: 1, None
+            height: "50dp"
+            padding: "10dp"
+            Button:
+                id: menuButton
+                text: "Menu"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_x": .5 }
+                on_press: root.goToMenu()
+            Label:
+                text: "Animal Hospital App"
+                font_size: 17
+                color: (0, 0, 0, 1)
+                size_hint: 0.2, 1
+                pos_hint: { "center_x": .5 }
+            Button:
+                text: "Profile"
+                size_hint: None, 1
+                width: "50dp"
+                pos_hint: { "center_y": .5 }
+                on_press: root.goToProfile()
+        GridLayout:
+            cols: 1
+            Label:
+                text: 'Blog'
+                font_size: 17
+                size_hint: 1, None
+                height: "40dp"
+                color: (0, 0, 0, 1)
+            ScrollView:
+                GridLayout:
+                    id: blog
+                    cols:1
+                    padding: "20dp"
+                    spacing: "10dp"
+                    size_hint: None, None
+                    width: root.width
+                    height: self.minimum_height
+                    Image:
+                        source: "images/Blog_1_image.jpeg"
+                        size: "100dp", "100dp"
+                    Label:
+                        id: title1
+                        text: ""
+                        color: (0, 0, 0, 1)
+                        text_size: self.width, None
+                        size_hint: 1, None
+                        height: self.texture_size[1]
+                    Label:
+                        id: content1
+                        text: ""
+                        color: (0, 0, 0, 1)
+                        font_size: 12
+                        text_size: self.width, None
+                        size_hint: 1, None
+                        height: self.texture_size[1]
+                    Image:
+                        source: 'images/Blog_2_image.jpg'
+                    Label:
+                        id: title2
+                        text: ""
+                        color: (0, 0, 0, 1)
+                        text_size: self.width, None
+                        size_hint: 1, None
+                        height: self.texture_size[1]
+
+                    Label:
+                        id: content2
+                        text: ""
+                        color: (0, 0, 0, 1)
+                        font_size: 12
+                        text_size: self.width, None
+                        size_hint: 1, None
+                        height: self.texture_size[1]
+
+
